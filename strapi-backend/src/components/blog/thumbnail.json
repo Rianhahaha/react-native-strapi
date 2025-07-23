@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_blog_thumbnails",
+  "info": {
+    "displayName": "Thumbnail",
+    "icon": "landscape"
+  },
+  "options": {},
+  "attributes": {
+    "Thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}
