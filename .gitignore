@@ -106,7 +106,7 @@ expo-env.d.ts
 .strapi-cloud.json
 license.txt
 exports/
-public/uploads/*
+strapi-backend/public/uploads/*
 !public/uploads/.gitkeep
 
 # Test / Coverage
