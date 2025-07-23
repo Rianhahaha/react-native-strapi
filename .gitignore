@@ -1,0 +1,113 @@
+# OS - macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+.Spotlight-V100
+.Trashes
+._*
+
+# OS - Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+
+# OS - Linux
+*~
+
+# Common Logs, Cache, and Build Files
+*.log
+*.tmp
+*.out
+*.pid
+*.seed
+*.swo
+*.swp
+*.swn
+.tsbuildinfo
+.eslintcache
+
+# Archives and binaries
+*.7z
+*.zip
+*.rar
+*.tar
+*.gz
+*.dmg
+*.iso
+*.jar
+*.dll
+*.exe
+*.class
+*.o
+*.so
+*.com
+
+# IDE / Editor
+.idea/
+.vscode/
+nbproject/
+*.iml
+
+# Node.js / NPM / Yarn
+node_modules/
+lib-cov/
+pids/
+logs/
+results/
+.node_history
+yarn-error.log
+npm-debug.log
+
+# Yarn 2+
+.yarn/*
+!.yarn/cache
+!.yarn/unplugged
+!.yarn/patches
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+
+# TypeScript
+*.tsbuildinfo
+
+# Expo / React Native
+.expo/
+dist/
+web-build/
+.expo-shared/
+android/
+ios/
+build/
+*.jks
+*.keystore
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+.metro-health-check*
+expo-env.d.ts
+
+# Env files (backend/frontend)
+.env
+.env.*.local
+.env.local
+
+# Strapi
+.strapi/
+.strapi-updater.json
+.strapi-cloud.json
+license.txt
+exports/
+public/uploads/*
+!public/uploads/.gitkeep
+
+# Test / Coverage
+coverage/

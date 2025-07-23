@@ -3,11 +3,12 @@ import ParallaxScrollView from "@/components/ParallaxScrollView";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { Blogs, readBlogs } from "@/utils/readBlogs";
-import { removeToken } from "@/utils/storage";
+import { getToken, removeToken } from "@/utils/storage";
 import { Image } from "expo-image";
 import { Link, useRouter } from "expo-router";
 import { useEffect, useState } from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
+
 
 type Profile = {
   username: string;
@@ -22,15 +23,24 @@ export default function HomeScreen() {
     readBlogs().then(setBlogs);
   }, []);
 
-  useEffect(() => {
-    if (!profile) return;
-    getProfile()
-      .then(setProfile)
-      .catch(() => {
-        removeToken();
-        navigation.replace('/login');
-      });
-  }, []);
+useEffect(() => {
+  const checkProfile = async () => {
+    const token = await getToken();
+    if (!token) {
+      return;
+    }
+
+    try {
+      const user = await getProfile();
+      setProfile(user);
+    } catch (error) {
+      removeToken();
+      navigation.replace("/login");
+    }
+  };
+
+  checkProfile();
+}, []);
 
   return (
     <ParallaxScrollView
@@ -42,9 +52,9 @@ export default function HomeScreen() {
         />
       }
     >
-        {profile ? (
-    <View style={{ padding: 20 }}>
-      <Text>Selamat Datang {profile?.username || '...'}</Text>
+        {profile && (
+    <View style={{ padding: 20, gap: 10 }}>
+      <Text style={{ color: "white", fontSize: 20 }}>Selamat Datang {profile?.username || '...' }</Text>
       <Button
         title="Logout"
         onPress={() => {
@@ -53,10 +63,8 @@ export default function HomeScreen() {
         }}
       />
     </View>
-  ) : (
-    <View style={{ padding: 20 }}>
-      <Text>Loading...</Text>
-    </View>
+  
+
   )}
       <View style={styles.stepContainer}>
         <ThemedText type="title">Blog</ThemedText>

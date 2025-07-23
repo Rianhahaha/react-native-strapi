@@ -1,10 +1,11 @@
 import { register } from '@/api/auth';
-import { Link, useRouter } from "expo-router";
+import { Colors } from "@/constants/Colors";
+import { Link, Stack, useRouter } from "expo-router";
 import React, { useState } from 'react';
-import { Alert, Button, TextInput, View } from 'react-native';
+import { Alert, Button, StyleSheet, TextInput, View } from 'react-native';
 
 
-const RegisterScreen = () => {
+export default function RegisterScreen() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -24,14 +25,24 @@ const RegisterScreen = () => {
   };
 
   return (
-    <View style={{ padding: 20 }}>
-      <TextInput placeholder="Username" onChangeText={setUsername} />
-      <TextInput placeholder="Email" onChangeText={setEmail} />
-      <TextInput placeholder="Password" secureTextEntry onChangeText={setPassword} />
+    <>
+          <Stack.Screen options={{ title: "Register" }} />
+
+      <View style={{ padding: 20, gap: 10 }}>
+      <TextInput placeholder="Username" onChangeText={setUsername} style={styles.form} />
+      <TextInput placeholder="Email" onChangeText={setEmail} style={styles.form} />
+      <TextInput placeholder="Password" secureTextEntry onChangeText={setPassword} style={styles.form} />
       <Button title="Register" onPress={handleRegister} />
-      <Link  href="/login">have an account?</Link>
+      <Link style={{ color: Colors.dark.text }}  href="/login">have an account?</Link>
     </View>
+    </>
   );
 };
 
-export default RegisterScreen;
+const styles = StyleSheet.create({
+  form : {
+    padding: 10,
+    backgroundColor: 'white'
+  }
+});
+
