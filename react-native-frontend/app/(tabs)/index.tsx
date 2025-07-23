@@ -54,7 +54,7 @@ useEffect(() => {
     >
         {profile && (
     <View style={{ padding: 20, gap: 10 }}>
-      <Text style={{ color: "white", fontSize: 20 }}>Selamat Datang {profile?.username || '...' }</Text>
+      <Text style={{ color: "white", fontSize: 20 }}>Welcome {profile?.username || '...' }</Text>
       <Button
         title="Logout"
         onPress={() => {
