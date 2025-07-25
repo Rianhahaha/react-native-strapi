@@ -1,8 +1,10 @@
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { getToken, } from "@/utils/storage";
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
+import { Stack, useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+import { useEffect, } from "react";
 import 'react-native-reanimated';
 
 export default function RootLayout() {
@@ -15,6 +17,19 @@ export default function RootLayout() {
     // Async font loading only occurs in development.
     return null;
   }
+    const navigation = useRouter();
+  
+  useEffect(() => {
+    const checkProfile = async () => {
+      const token = await getToken();
+      if (!token) {
+        navigation.replace("/login");
+        return;
+      }
+    };
+  
+    checkProfile();
+  }, []);
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ?   DarkTheme : DefaultTheme}>
