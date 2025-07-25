@@ -17,3 +17,8 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
    ```
 
 
+### `Before running the Frontend. We might need to set the public roles permission to fetch the API in backend`
+example : 
+<img width="1419" height="372" alt="image" src="https://github.com/user-attachments/assets/393ef5bb-8dba-4da1-be0c-45a04500f7f0" />
+for testing purposes
+set the API to findOne and Find to make it fetchable on public
