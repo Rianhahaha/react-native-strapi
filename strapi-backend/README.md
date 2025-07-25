@@ -6,6 +6,9 @@
 npm install
 
 ```
+### `Setting the ENV`
+you would want to create the env first. The template is in the env example file
+
 ### `develop`
 
 Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-develop)
