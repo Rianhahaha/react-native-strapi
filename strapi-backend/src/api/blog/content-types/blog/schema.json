@@ -14,6 +14,9 @@
     "Title": {
       "type": "string"
     },
+    "description": {
+      "type": "text"
+    },
     "Ratings": {
       "type": "integer",
       "min": 0,
@@ -27,6 +30,11 @@
       "type": "component",
       "component": "shared.media",
       "repeatable": false
+    },
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
     }
   }
 }
